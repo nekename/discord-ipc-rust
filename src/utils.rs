@@ -62,7 +62,7 @@ fn get_os_pipe_paths() -> HashSet<String> {
     possible_paths
 }
 
-#[cfg(target_family = "unix")]
+#[cfg(all(target_family = "unix", not(target_os = "macos")))]
 fn get_os_pipe_paths() -> HashSet<String> {
     use std::env::var;
 
@@ -79,7 +79,7 @@ fn get_os_pipe_paths() -> HashSet<String> {
     possible_paths
 }
 
-#[cfg(target_os = "darwin")]
+#[cfg(target_os = "macos")]
 fn get_os_pipe_paths() -> HashSet<String> {
     use std::env::var;
 

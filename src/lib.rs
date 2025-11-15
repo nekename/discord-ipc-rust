@@ -22,5 +22,5 @@ pub type Result<T, E = DiscordRPCError> = std::result::Result<T, E>;
 #[serde(untagged)]
 pub enum ReceivedItem {
     Event(Box<ReturnedEvent>),
-    Command(ReturnedCommand),
+    Command(Box<ReturnedCommand>),
 }
