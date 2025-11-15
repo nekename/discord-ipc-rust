@@ -1,6 +1,6 @@
-use serde::{Deserialize, Serialize};
-
 use super::User;
+
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Message {

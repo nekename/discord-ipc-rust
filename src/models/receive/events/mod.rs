@@ -1,11 +1,11 @@
-use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
-
 use crate::models::shared::{
     message::{DeletedMessage, Message},
     voice_state::VoiceState,
     User,
 };
+
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE", tag = "evt", content = "data")]

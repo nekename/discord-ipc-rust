@@ -1,14 +1,16 @@
-use crate::Result;
+use crate::{errors::DiscordRPCError, get_pipe_path, pack, unpack, Result};
+
 use std::sync::Arc;
 
-#[cfg(target_family = "unix")]
-use tokio::net::unix::{OwnedReadHalf, OwnedWriteHalf};
-
-#[cfg(target_family = "unix")]
-use tokio::net::UnixStream;
 use tokio::{
     io::{AsyncReadExt, AsyncWriteExt},
     sync::Mutex,
+};
+
+#[cfg(target_family = "unix")]
+use tokio::net::{
+    unix::{OwnedReadHalf, OwnedWriteHalf},
+    UnixStream,
 };
 
 #[cfg(target_family = "windows")]
@@ -16,8 +18,6 @@ use tokio::{
     io::{ReadHalf, WriteHalf},
     net::windows::named_pipe::{ClientOptions, NamedPipeClient},
 };
-
-use crate::{errors::DiscordRPCError, get_pipe_path, pack, unpack};
 
 #[cfg(target_family = "windows")]
 type ReadHalfType = ReadHalf<NamedPipeClient>;

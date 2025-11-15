@@ -1,9 +1,10 @@
 use crate::Result;
-use serde_json::Value;
+
 use std::collections::HashSet;
 use std::convert::TryInto;
-use std::path::Path;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
+
+use serde_json::Value;
 use uuid::Uuid;
 
 pub fn create_packet_json(value: &mut serde_json::Value) -> Result<String> {

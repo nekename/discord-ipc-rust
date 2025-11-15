@@ -1,6 +1,6 @@
-use serde::{Deserialize, Serialize};
-
 use super::voice_state::VoicePan;
+
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SetUserVoiceSettingsData {

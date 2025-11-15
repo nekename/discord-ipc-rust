@@ -1,6 +1,6 @@
-use serde::{Deserialize, Serialize};
-
 use crate::models::shared::{channel::Channel, Guild, SetUserVoiceSettingsData, User};
+
+use serde::{Deserialize, Serialize};
 
 /// All command responses that come back from the discord RPC
 #[derive(Serialize, Deserialize, Debug)]

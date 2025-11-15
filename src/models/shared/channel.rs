@@ -1,7 +1,7 @@
+use super::{message::Message, voice_state::VoiceState};
+
 use serde::{Deserialize, Serialize};
 use serde_repr::{Deserialize_repr, Serialize_repr};
-
-use super::{message::Message, voice_state::VoiceState};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Channel {

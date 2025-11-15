@@ -7,12 +7,12 @@ pub mod opcodes;
 pub mod ipc;
 pub mod ipc_socket;
 
-use models::receive::{commands::ReturnedCommand, events::ReturnedEvent};
-use serde::{Deserialize, Serialize};
-
 use errors::DiscordRPCError;
 pub use ipc::DiscordIpcClient;
+use models::receive::{commands::ReturnedCommand, events::ReturnedEvent};
 pub use utils::*;
+
+use serde::{Deserialize, Serialize};
 
 pub type Result<T, E = DiscordRPCError> = std::result::Result<T, E>;
 

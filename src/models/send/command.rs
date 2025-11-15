@@ -1,9 +1,9 @@
-use serde::{Deserialize, Serialize};
-use serde_json::Value;
+use super::events::SubscribeableEvent;
 
 use crate::{models::shared::SetUserVoiceSettingsData, Result};
 
-use super::event::SubscribeableEvent;
+use serde::{Deserialize, Serialize};
+use serde_json::Value;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE", tag = "cmd", content = "args")]
