@@ -1,6 +1,6 @@
 use crate::ipc_socket::DiscordIpcSocket;
 use crate::models::receive::events::ReturnedEvent;
-use crate::models::send::command::SentCommand;
+use crate::models::send::commands::SentCommand;
 use crate::models::shared::User;
 use crate::opcodes::OpCodes;
 use crate::{create_packet_json, ReceivedItem, Result};

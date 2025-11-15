@@ -1,2 +1,2 @@
-pub mod command;
-pub mod event;
+pub mod commands;
+pub mod events;
