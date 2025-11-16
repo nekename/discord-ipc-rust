@@ -1,4 +1,4 @@
-use crate::models::shared::{voice::VoicePan, Guild, Message, User};
+use crate::models::shared::{Guild, Message, User, voice::VoicePan};
 
 use serde::{Deserialize, Serialize};
 

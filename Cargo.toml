@@ -6,26 +6,24 @@ authors = [
     "Adel-ak <adelkerow@gmail.com>",
     "zihadmahiuddin",
     "sardonicism-04 <110789901+sardonicism-04@users.noreply.github.com>",
-    "Deftu"
+    "Deftu",
+    "nekename"
 ]
-edition = "2021"
+edition = "2024"
 description = "Cross-platform crate for interfacing with the Discord client locally via RPC"
 readme = "README.md"
-repository = "https://github.com/Deftu/discord-ipc-rust"
+repository = "https://github.com/nekename/discord-ipc-rust"
 license = "MIT"
 keywords = ["discord", "ipc", "RPC", "client"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-[lib]
-doctest = false
-
 [dependencies]
-serde = { version = "1.0.210", features = ["derive"] }
-serde_json = { version = "1.0.128", features = ["preserve_order"] }
-serde_with = "3.16.0"
-serde_repr = "0.1.19"
-uuid = { version = "0.8", features = ["v4"] }
-tokio = { version = "1.21.1", features = ["full"] }
-thiserror = "1.0.37"
-# TODO: we don't need this as a hard dep
-dotenv = "0.15.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["preserve_order"] }
+serde_with = "3.16"
+serde_repr = "0.1.20"
+uuid = { version = "1.18", features = ["v4"] }
+tokio = { version = "1.48", features = ["full"] }
+thiserror = "1.0"
+
+[dev-dependencies]
+dotenv = "0.15"

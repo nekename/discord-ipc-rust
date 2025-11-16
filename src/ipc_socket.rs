@@ -10,8 +10,8 @@ use tokio::{
 
 #[cfg(target_family = "unix")]
 use tokio::net::{
-    unix::{OwnedReadHalf, OwnedWriteHalf},
     UnixStream,
+    unix::{OwnedReadHalf, OwnedWriteHalf},
 };
 
 #[cfg(target_family = "windows")]

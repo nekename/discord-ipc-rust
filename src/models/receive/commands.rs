@@ -1,6 +1,6 @@
 use crate::models::shared::{
-    voice::{UserVoiceSettings, VoiceSettings},
     Channel, Guild, User,
+    voice::{UserVoiceSettings, VoiceSettings},
 };
 
 use serde::{Deserialize, Serialize};
