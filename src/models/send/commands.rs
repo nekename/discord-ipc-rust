@@ -1,32 +1,35 @@
+pub use super::args::*;
+
 use super::events::SubscribeableEvent;
 
-use crate::{models::shared::SetUserVoiceSettingsData, Result};
+use crate::Result;
 
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
+/// <https://discord.com/developers/docs/topics/rpc#commands-and-events-rpc-commands>
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE", tag = "cmd", content = "args")]
 pub enum SentCommand {
     Dispatch(SubscribeableEvent), // ???
-    Authorize(AuthorizeData),
-    Authenticate { access_token: String },
-    GetGuild(GetGuildData),
-    GetGuilds, // No args
-    GetChannel { channel_id: String },
-    GetChannels { guild_id: String },
+    Authorize(AuthorizeArgs),
+    Authenticate(AuthenticateArgs),
+    GetGuild(GetGuildArgs),
+    GetGuilds,
+    GetChannel(GetChannelArgs),
+    GetChannels(GetChannelsArgs),
     Subscribe(SubscribeableEvent),
     Unsubscribe(SubscribeableEvent),
-    SetUserVoiceSettings(SetUserVoiceSettingsData),
-    SelectVoiceChannel(SelectVoiceChannelData),
-    GetSelectedVoiceChannel, // No args
-    SelectTextChannel(SelectTextChannelData),
-    GetVoiceSettings,       // No args
-    SetVoiceSettings,       // !!! CURRENTLY UNSUPPORTED DUE TO LIMITATIONS IMPOSED BY DISCORD !!!
-    SetCertifiedDevices,    // !!! CURRENTLY UNSUPPORTED DUE TO A LACK OF DOCUMENTATION !!!
-    SetActivity,            // TODO
-    SendActivityJoinInvite, // TODO
-    CloseActivityRequest,   // TODO
+    SetUserVoiceSettings(SetUserVoiceSettingsArgs),
+    SelectVoiceChannel(SelectVoiceChannelArgs),
+    GetSelectedVoiceChannel,
+    SelectTextChannel(SelectTextChannelArgs),
+    GetVoiceSettings,
+    SetVoiceSettings(SetVoiceSettingsArgs),
+    SetCertifiedDevices, // Restricted to hardware manufacturers
+    SetActivity,         // TODO
+    SendActivityJoinInvite(SendActivityJoinInviteArgs),
+    CloseActivityRequest(CloseActivityRequestArgs),
 }
 
 impl SentCommand {
@@ -73,44 +76,4 @@ impl SentCommand {
 
         Ok(command_json)
     }
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct AuthorizeData {
-    /// Array of OAuth2 scopes - Scopes to authorize
-    pub scopes: Vec<String>,
-    /// string - OAuth2 application ID
-    pub client_id: String,
-    /// string - One-time use RPC token
-    pub rpc_token: String,
-    /// string - Username to create a guest account with if the user does not have Discord
-    pub username: String,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct GetGuildData {
-    /// string - Guild ID
-    pub guild_id: String,
-    /// integer - Asynchronously get guild with time to wait before timing out
-    pub timeout: i32,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct SelectVoiceChannelData {
-    /// string - Channel ID
-    pub channel_id: String,
-    /// integer - Asynchronously join voice channel with time to wait before timing out
-    pub timeout: i32,
-    /// boolean - Forces a user to join a voice channel
-    pub force: bool,
-    /// boolean - After joining the voice channel, navigate to it in the client
-    pub navigate: bool,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct SelectTextChannelData {
-    /// string - Channel ID
-    pub channel_id: String,
-    /// integer - Asynchronously join text channel with time to wait before timing out
-    pub timeout: i32,
 }

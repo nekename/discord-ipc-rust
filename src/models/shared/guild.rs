@@ -2,10 +2,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Guild {
-    /// string - Guild ID
+    /// snowflake - guild id
     pub id: String,
-    /// string - Guild name
+    /// string - guild name (2-100 characters, excluding trailing and leading whitespace)
     pub name: String,
-    /// string - Guild icon URL
-    pub icon: String,
+    /// ?string - icon hash
+    pub icon: Option<String>,
+    /// snowflake - id of owner
+    pub owner_id: Option<String>,
 }

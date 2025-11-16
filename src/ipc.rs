@@ -1,9 +1,9 @@
 use crate::ipc_socket::DiscordIpcSocket;
-use crate::models::receive::events::ReturnedEvent;
-use crate::models::send::commands::SentCommand;
+use crate::models::receive::{events::ReturnedEvent, ReceivedItem};
+use crate::models::send::commands::{AuthenticateArgs, SentCommand};
 use crate::models::shared::User;
 use crate::opcodes::OpCodes;
-use crate::{create_packet_json, ReceivedItem, Result};
+use crate::{create_packet_json, Result};
 
 use serde_json::json;
 
@@ -93,9 +93,9 @@ impl DiscordIpcClient {
     ///
     /// Returns an `Err` variant if sending the handshake failed.
     pub async fn authenticate(&mut self, access_token: &str) -> Result<()> {
-        let command = SentCommand::Authenticate {
+        let command = SentCommand::Authenticate(AuthenticateArgs {
             access_token: access_token.to_string(),
-        };
+        });
 
         self.emit_command(&command).await?;
 
