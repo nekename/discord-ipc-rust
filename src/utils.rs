@@ -13,11 +13,9 @@ pub fn create_packet_json(value: &mut serde_json::Value) -> Result<String> {
     let payload = value.as_object_mut().expect("payload must be an object");
     payload.insert("nonce".to_string(), Value::String(uuid));
 
-    // TODO: handle error
     Ok(serde_json::to_string(&payload)?)
 }
 
-// Re-implement some packing methods in Rust
 pub fn pack(opcode: u32, data_len: u32) -> Result<Vec<u8>> {
     let mut bytes = Vec::new();
 
@@ -38,7 +36,7 @@ pub fn unpack(data: Vec<u8>) -> Result<(u32, u32)> {
     Ok((opcode, header))
 }
 
-/// Finds the discord IPC pipe path
+/// Finds the active pipe path of the RPC server
 pub fn get_pipe_path() -> Option<PathBuf> {
     let possible_paths = get_os_pipe_paths();
 
@@ -59,21 +57,17 @@ pub fn get_pipe_path() -> Option<PathBuf> {
 #[cfg(target_os = "windows")]
 fn get_os_pipe_paths() -> HashSet<String> {
     let mut possible_paths = HashSet::new();
-    possible_paths.insert(r"\\?\pipe\discord-ipc-".to_string());
+    possible_paths.insert(r"\\?\pipe\discord-ipc-".to_owned());
     possible_paths
 }
 
 #[cfg(all(target_family = "unix", not(target_os = "macos")))]
 fn get_os_pipe_paths() -> HashSet<String> {
-    use std::env::var;
-
     let mut possible_paths = HashSet::new();
-    possible_paths.insert("/tmp/discord-ipc-".to_string());
-    if let Ok(runtime_dir) = var("XDG_RUNTIME_DIR") {
-        // Flatpak installed Discord
-        possible_paths.insert(runtime_dir.clone() + "/app/com.discordapp.Discord/discord-ipc-");
+    possible_paths.insert("/tmp/discord-ipc-".to_owned());
 
-        // Non-Flatpak installed Discord
+    if let Ok(runtime_dir) = std::env::var("XDG_RUNTIME_DIR") {
+        possible_paths.insert(runtime_dir.clone() + "/app/com.discordapp.Discord/discord-ipc-"); // Discord installed via Flatpak
         possible_paths.insert(runtime_dir + "/discord-ipc-");
     }
 
@@ -82,12 +76,9 @@ fn get_os_pipe_paths() -> HashSet<String> {
 
 #[cfg(target_os = "macos")]
 fn get_os_pipe_paths() -> HashSet<String> {
-    use std::env::var;
-
     let mut possible_paths = HashSet::new();
-    if let Ok(runtime_dir) = var("TMPDIR") {
+    if let Ok(runtime_dir) = std::env::var("TMPDIR") {
         possible_paths.insert(runtime_dir + "/discord-ipc-");
     }
-
     possible_paths
 }
