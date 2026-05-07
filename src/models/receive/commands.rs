@@ -27,6 +27,7 @@ pub enum ReturnedCommand {
     SetActivity,         // TODO
     SendActivityJoinInvite,
     CloseActivityRequest,
+    ToggleScreenshare,
 }
 
 /// <https://discord.com/developers/docs/topics/rpc#authenticate-oauth2-application-structure>

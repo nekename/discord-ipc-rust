@@ -192,3 +192,13 @@ pub struct ActivityJoinRequestData {
     /// partial user object - information about the user requesting to join
     pub user: User,
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ScreenshareStateData {
+    /// boolean - whether the user is currently screensharing
+    pub active: bool,
+    /// integer - PID of the application being shared, if any
+    pub pid: Option<u32>,
+    /// application object - metadata for the shared window
+    pub application: Option<serde_json::Value>,
+}

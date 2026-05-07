@@ -28,4 +28,5 @@ pub enum ReturnedEvent {
     ActivityJoin(ActivityJoinData),
     ActivitySpectate(ActivitySpectateData),
     ActivityJoinRequest(ActivityJoinRequestData),
+    ScreenshareStateUpdate(ScreenshareStateData),
 }

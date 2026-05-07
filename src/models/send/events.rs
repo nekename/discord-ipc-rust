@@ -22,4 +22,5 @@ pub enum SubscribeableEvent {
     ActivityJoin,
     ActivitySpectate,
     ActivityJoinRequest,
+    ScreenshareStateUpdate,
 }
