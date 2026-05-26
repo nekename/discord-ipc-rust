@@ -93,3 +93,10 @@ pub struct CloseActivityRequestArgs {
     /// snowflake - the id of the requesting user
     pub user_id: String,
 }
+
+/// <https://github.com/Khaomi/discord-rpc/blob/3a2d794abb74239f6608565a520f29d0c6e98247/src/structures/ClientUser.ts#L397>
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ToggleScreenshareArgs {
+    /// integer - PID of the application to be shared, if any
+    pub pid: Option<u32>,
+}

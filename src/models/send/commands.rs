@@ -30,7 +30,7 @@ pub enum SentCommand {
     SetActivity,         // TODO
     SendActivityJoinInvite(SendActivityJoinInviteArgs),
     CloseActivityRequest(CloseActivityRequestArgs),
-    ToggleScreenshare,
+    ToggleScreenshare(ToggleScreenshareArgs),
 }
 
 impl SentCommand {
