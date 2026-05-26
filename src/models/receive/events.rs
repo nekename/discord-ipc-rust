@@ -28,5 +28,6 @@ pub enum ReturnedEvent {
     ActivityJoin(ActivityJoinData),
     ActivitySpectate(ActivitySpectateData),
     ActivityJoinRequest(ActivityJoinRequestData),
+    VideoStateUpdate(VideoStateData),
     ScreenshareStateUpdate(ScreenshareStateData),
 }

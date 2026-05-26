@@ -30,6 +30,7 @@ pub enum SentCommand {
     SetActivity,         // TODO
     SendActivityJoinInvite(SendActivityJoinInviteArgs),
     CloseActivityRequest(CloseActivityRequestArgs),
+    ToggleVideo,
     ToggleScreenshare(ToggleScreenshareArgs),
 }
 

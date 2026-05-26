@@ -194,6 +194,12 @@ pub struct ActivityJoinRequestData {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct VideoStateData {
+    /// boolean - whether the user is currently streaming video
+    pub active: bool,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ScreenshareStateData {
     /// boolean - whether the user is currently screensharing
     pub active: bool,

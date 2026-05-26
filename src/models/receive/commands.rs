@@ -27,6 +27,7 @@ pub enum ReturnedCommand {
     SetActivity,         // TODO
     SendActivityJoinInvite,
     CloseActivityRequest,
+    ToggleVideo,
     ToggleScreenshare,
 }
 
