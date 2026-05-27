@@ -23,7 +23,7 @@ pub struct UserVoiceSettings {
     pub mute: Option<bool>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct VoiceAvailableDevice {
     /// string
     pub id: String,
