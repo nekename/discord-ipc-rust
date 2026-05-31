@@ -68,9 +68,9 @@ pub struct ChannelCreateData {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct VoiceChannelSelectData {
     /// string - id of channel (null if none)
-    pub channel_id: String,
+    pub channel_id: Option<String>,
     /// string - id of guild (null if none)
-    pub guild_id: String,
+    pub guild_id: Option<String>,
 }
 
 /// <https://discord.com/developers/docs/resources/voice#voice-state-object-voice-state-structure>
