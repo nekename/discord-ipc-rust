@@ -6,6 +6,6 @@ pub struct Guild {
     pub id: String,
     /// string - guild name (2-100 characters, excluding trailing and leading whitespace)
     pub name: String,
-    /// ?string - icon url
+    /// ?string - guild icon url
     pub icon_url: Option<String>,
 }
