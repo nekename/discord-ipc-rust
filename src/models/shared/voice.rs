@@ -99,14 +99,14 @@ pub struct SoundboardSound {
     pub name: String,
     /// float - sound volume (min: 0, max: 1)
     pub volume: f32,
-    /// boolean - whether the sound is currently being played
+    /// boolean
     pub available: bool,
     /// string - sound id
     pub sound_id: String,
     /// string - guild id of the sound
     pub guild_id: String,
-    /// string - emoji id of the sound (null if not custom)
+    /// string - emoji id of the sound
     pub emoji_id: Option<String>,
-    /// string - emoji name of the sound (null if not custom)
+    /// string - emoji name of the sound
     pub emoji_name: Option<String>,
 }
