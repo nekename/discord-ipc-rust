@@ -32,6 +32,8 @@ pub enum SentCommand {
     CloseActivityRequest(CloseActivityRequestArgs),
     ToggleVideo,
     ToggleScreenshare(ToggleScreenshareArgs),
+    GetSoundboardSounds,
+    PlaySoundboardSound(PlaySoundboardSoundArgs),
 }
 
 impl SentCommand {

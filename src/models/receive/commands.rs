@@ -29,6 +29,8 @@ pub enum ReturnedCommand {
     CloseActivityRequest,
     ToggleVideo,
     ToggleScreenshare,
+    GetSoundboardSounds { sounds: Vec<String> },
+    PlaySoundboardSound,
 }
 
 /// <https://discord.com/developers/docs/topics/rpc#authenticate-oauth2-application-structure>

@@ -101,3 +101,12 @@ pub struct ToggleScreenshareArgs {
     /// integer - PID of the application to be shared, if any
     pub pid: Option<u32>,
 }
+
+/// <https://github.com/Khaomi/discord-rpc/blob/3a2d794abb74239f6608565a520f29d0c6e98247/src/structures/ClientUser.ts#L376>
+#[derive(Serialize, Deserialize, Debug)]
+pub struct PlaySoundboardSoundArgs {
+    /// string - the id of the guild to play the sound in
+    pub guild_id: String,
+    /// string - the id of the sound to play
+    pub sound_id: String,
+}
