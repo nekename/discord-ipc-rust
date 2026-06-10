@@ -1,6 +1,6 @@
 use crate::models::shared::{
     Channel, Guild, User,
-    voice::{UserVoiceSettings, VoiceSettings},
+    voice::{SoundboardSound, UserVoiceSettings, VoiceSettings},
 };
 
 use serde::{Deserialize, Serialize};
@@ -29,7 +29,7 @@ pub enum ReturnedCommand {
     CloseActivityRequest,
     ToggleVideo,
     ToggleScreenshare,
-    GetSoundboardSounds { sounds: Vec<String> },
+    GetSoundboardSounds(Vec<SoundboardSound>),
     PlaySoundboardSound,
 }
 
