@@ -17,7 +17,7 @@ pub struct UserVoiceSettings {
     pub user_id: String,
     /// pan object - set the pan of the user
     pub pan: Option<VoicePan>,
-    /// integer - set the volume of user (defaults to 100, min 0, max 200)
+    /// float - set the volume of user (defaults to 100, min 0, max 200)
     pub volume: Option<f32>,
     /// boolean - set the mute state of the user
     pub mute: Option<bool>,
