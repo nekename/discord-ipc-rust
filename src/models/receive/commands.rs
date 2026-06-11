@@ -1,6 +1,6 @@
 use crate::models::shared::{
     Channel, Guild, User,
-    voice::{UserVoiceSettings, VoiceSettings},
+    voice::{SoundboardSound, UserVoiceSettings, VoiceSettings},
 };
 
 use serde::{Deserialize, Serialize};
@@ -29,6 +29,8 @@ pub enum ReturnedCommand {
     CloseActivityRequest,
     ToggleVideo,
     ToggleScreenshare,
+    GetSoundboardSounds(Vec<SoundboardSound>),
+    PlaySoundboardSound,
 }
 
 /// <https://discord.com/developers/docs/topics/rpc#authenticate-oauth2-application-structure>
